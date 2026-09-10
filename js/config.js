@@ -9,5 +9,14 @@ export const CONFIG = {
   },
 
   schoolName: "El Modena Vanguards",
-  defaultTeam: "Varsity"
+  defaultTeam: "Varsity",
+
+  // Data values stay simple and consistent in Google Sheets.
+  // These labels are only for nicer on-screen presentation.
+  teamDisplayNames: {
+    "Varsity": "Varsity",
+    "Junior Varsity": "Junior Varsity",
+    "Frosh/Soph": "Frosh / Soph",
+    "Freshman": "Freshman"
+  }
 };

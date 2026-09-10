@@ -8,10 +8,11 @@ const app = document.querySelector("#app");
 
 async function startApp() {
   const team = getRequestedTeam(CONFIG.defaultTeam);
+  const displayTeam = CONFIG.teamDisplayNames?.[team] || team;
   const loadingText = document.querySelector("#loadingText");
 
   if (loadingText) {
-    loadingText.textContent = `Loading ${team} roster…`;
+    loadingText.textContent = `Loading ${displayTeam} roster…`;
   }
 
   try {
@@ -20,12 +21,12 @@ async function startApp() {
     const players = getPlayers(data.rosters, season, team);
     const coaches = getCoaches(data.coaches, season, team);
 
-    document.title = `${team} Basketball Roster | El Modena`;
+    document.title = `${displayTeam} Basketball Roster | El Modena`;
 
     app.innerHTML = `
       <header class="team-header">
         <p class="school-name">${escapeHtml(CONFIG.schoolName)}</p>
-        <h1 class="team-name">${escapeHtml(team)} Basketball</h1>
+        <h1 class="team-name">${escapeHtml(displayTeam)} Basketball</h1>
         <p class="season">${escapeHtml(season)}</p>
       </header>
 
