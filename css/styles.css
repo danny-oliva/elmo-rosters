@@ -12,8 +12,8 @@
   --text: #1e1e1e;
   --muted: #6d6d6d;
   --line: #e2e2df;
-  --shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 14px 30px rgba(0, 0, 0, 0.14);
+  --shadow: 0 7px 20px rgba(0, 0, 0, 0.075);
+  --shadow-hover: 0 13px 28px rgba(0, 0, 0, 0.13);
   --radius: 16px;
 }
 
@@ -37,7 +37,7 @@ body {
 .roster-app {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 28px 0 44px;
+  padding: 20px 0 40px;
 }
 
 /* =========================================================
@@ -83,12 +83,12 @@ body {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 85% -20%, rgba(212, 175, 55, 0.28), transparent 35%),
-    linear-gradient(135deg, var(--elmo-cardinal), var(--elmo-cardinal-dark));
+    radial-gradient(circle at 87% -24%, rgba(212, 175, 55, 0.27), transparent 36%),
+    linear-gradient(135deg, var(--elmo-cardinal), #7e351f);
   color: #fff;
   border-bottom: 5px solid var(--elmo-gold);
   border-radius: var(--radius);
-  padding: 34px 30px 30px;
+  padding: 30px 30px 27px;
   box-shadow: var(--shadow);
   text-align: center;
 }
@@ -97,18 +97,19 @@ body {
   content: "🏀";
   position: absolute;
   right: 22px;
-  top: 4px;
-  font-size: 92px;
-  opacity: 0.08;
+  top: 3px;
+  font-size: 88px;
+  opacity: 0.075;
   transform: rotate(-12deg);
+  filter: saturate(0.7);
 }
 
 .school-name {
-  margin: 0 0 5px;
+  margin: 0 0 4px;
   color: var(--elmo-gold-light);
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-size: clamp(13px, 1.7vw, 17px);
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
@@ -116,16 +117,17 @@ body {
   position: relative;
   z-index: 1;
   margin: 0;
-  font-size: clamp(30px, 5vw, 48px);
+  font-size: clamp(30px, 5vw, 47px);
   font-weight: 900;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
 .season {
-  margin: 7px 0 0;
-  font-size: 16px;
-  font-weight: 700;
+  margin: 9px 0 0;
+  font-size: 15px;
+  font-weight: 800;
 }
 
 /* =========================================================
@@ -133,26 +135,26 @@ body {
    ========================================================= */
 
 .section {
-  margin-top: 30px;
+  margin-top: 26px;
 }
 
 .section-heading {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   color: var(--elmo-cardinal);
-  font-size: clamp(22px, 3vw, 28px);
+  font-size: clamp(21px, 3vw, 27px);
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.03em;
 }
 
 .section-heading::after {
   content: "";
   height: 3px;
   flex: 1;
-  background: linear-gradient(90deg, var(--elmo-gold), transparent);
+  background: linear-gradient(90deg, var(--elmo-gold), rgba(212, 175, 55, 0.08));
   border-radius: 999px;
 }
 
@@ -163,8 +165,8 @@ body {
 .coaches {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 26px;
-  padding: 18px 22px;
+  gap: 14px 34px;
+  padding: 17px 22px;
   background: var(--card-bg);
   border-left: 5px solid var(--elmo-gold);
   border-radius: 12px;
@@ -172,7 +174,7 @@ body {
 }
 
 .coach {
-  min-width: 190px;
+  min-width: 195px;
 }
 
 .coach-name {
@@ -195,19 +197,21 @@ body {
 .roster-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 15px;
 }
 
 .player-card {
   position: relative;
-  min-height: 132px;
+  min-height: 116px;
   overflow: hidden;
-  background: var(--card-bg);
+  background:
+    linear-gradient(180deg, rgba(122, 23, 25, 0.015), rgba(255, 255, 255, 0) 48%),
+    var(--card-bg);
   border: 1px solid var(--line);
   border-top: 4px solid var(--elmo-cardinal);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 24px 20px 20px;
+  padding: 21px 20px 18px;
   transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
 }
 
@@ -223,38 +227,41 @@ body {
   top: 14px;
   display: grid;
   place-items: center;
-  min-width: 42px;
-  height: 42px;
+  min-width: 45px;
+  height: 45px;
   padding: 0 8px;
   background: var(--elmo-cardinal);
   color: var(--elmo-gold-light);
   border: 2px solid var(--elmo-gold);
   border-radius: 999px;
+  box-shadow: 0 3px 8px rgba(85, 16, 18, 0.16);
   font-size: 15px;
   font-weight: 900;
+  line-height: 1;
 }
 
 .player-card.has-number .player-name {
-  padding-right: 55px;
+  padding-right: 58px;
 }
 
 .player-name {
-  margin: 8px 0 12px;
+  margin: 6px 0 11px;
   color: var(--elmo-cardinal-dark);
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 900;
   line-height: 1.15;
 }
 
 .class-badge {
   display: inline-block;
-  background: #f5edcf;
+  background: #f7efd2;
   color: var(--elmo-cardinal-dark);
-  border: 1px solid #e6d38c;
+  border: 1px solid #e4cf7f;
   border-radius: 999px;
-  padding: 5px 10px;
-  font-size: 13px;
+  padding: 4px 9px;
+  font-size: 12.5px;
   font-weight: 800;
+  line-height: 1.2;
 }
 
 /* =========================================================
@@ -263,7 +270,7 @@ body {
 
 .empty-message {
   margin: 0;
-  padding: 22px;
+  padding: 21px;
   background: #fff;
   border: 1px dashed #c9c9c5;
   border-radius: 12px;
@@ -279,6 +286,10 @@ body {
   .roster-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .team-header {
+    padding-inline: 22px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -289,35 +300,54 @@ body {
 
   .team-header {
     border-radius: 12px;
-    padding: 26px 18px 23px;
+    padding: 24px 16px 22px;
   }
 
   .team-header::after {
-    font-size: 70px;
-    right: 5px;
+    font-size: 66px;
+    right: 3px;
+  }
+
+  .team-name {
+    font-size: clamp(28px, 9vw, 38px);
   }
 
   .section {
-    margin-top: 24px;
+    margin-top: 22px;
+  }
+
+  .section-heading {
+    gap: 10px;
+    margin-bottom: 12px;
   }
 
   .roster-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 11px;
   }
 
   .player-card {
-    min-height: 112px;
-    padding: 18px;
+    min-height: 104px;
+    padding: 17px 18px 16px;
   }
 
   .player-name {
-    font-size: 20px;
+    font-size: 19px;
+    margin-top: 5px;
+  }
+
+  .jersey-number {
+    right: 14px;
+    top: 12px;
+    min-width: 42px;
+    height: 42px;
+    font-size: 14px;
   }
 
   .coaches {
     display: grid;
-    gap: 14px;
+    gap: 13px;
+    padding: 16px 18px;
   }
 }
 
