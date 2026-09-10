@@ -254,14 +254,36 @@ body {
 
 .class-badge {
   display: inline-block;
-  background: #f7efd2;
-  color: var(--elmo-cardinal-dark);
-  border: 1px solid #e4cf7f;
+  border: 1px solid transparent;
   border-radius: 999px;
   padding: 4px 9px;
   font-size: 12.5px;
   font-weight: 800;
   line-height: 1.2;
+}
+
+.class-badge.senior {
+  background: #d4af37;
+  color: #551012;
+  border-color: #b99218;
+}
+
+.class-badge.junior {
+  background: #f2d9da;
+  color: #7a1719;
+  border-color: #d9a9ab;
+}
+
+.class-badge.sophomore {
+  background: #f4e7c7;
+  color: #6c4b18;
+  border-color: #ddc488;
+}
+
+.class-badge.freshman {
+  background: #e6e8eb;
+  color: #4b5158;
+  border-color: #c7cbd0;
 }
 
 /* =========================================================
