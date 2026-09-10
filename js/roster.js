@@ -5,6 +5,13 @@ import {
   normalizeForCompare
 } from "./utils.js";
 
+function classSlug(value) {
+  return cleanText(value)
+    .toLocaleLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function getPlayers(rosterRows, season, team) {
   return rosterRows
     .filter(
@@ -22,17 +29,24 @@ export function renderRoster(players) {
 
   const cards = players.map((player) => {
     const name = escapeHtml(cleanText(player["Player Name"]));
-    const playerClass = escapeHtml(cleanText(player.Class));
+    const rawClass = cleanText(player.Class);
+    const playerClass = escapeHtml(rawClass);
+    const playerClassSlug = classSlug(rawClass);
     const jersey = cleanText(player.Jersey);
+
     const jerseyMarkup = jersey
       ? `<span class="jersey-number" aria-label="Jersey number ${escapeHtml(jersey)}">#${escapeHtml(jersey)}</span>`
+      : "";
+
+    const classMarkup = playerClass
+      ? `<span class="class-badge ${playerClassSlug}">${playerClass}</span>`
       : "";
 
     return `
       <article class="player-card${jersey ? " has-number" : ""}">
         ${jerseyMarkup}
         <h3 class="player-name">${name}</h3>
-        ${playerClass ? `<span class="class-badge">${playerClass}</span>` : ""}
+        ${classMarkup}
       </article>
     `;
   }).join("");
